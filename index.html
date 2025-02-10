@@ -174,7 +174,7 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" class="gform" method="POST" action="https://script.google.com/macros/s/AKfycbwpmOBm_oDszFhG4XTzPx6v8BJQgs-rKy-g6nwGbhBiMuHMq60C7UXwBf-Tucj2vfUH/exec">
+                    <form id="contactForm" name="contactForm" data-sb-form-api-token="API_TOKEN">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" id="name" name="name" type="text" placeholder="이름을 입력하세요(Enter your name)..."
@@ -313,8 +313,25 @@
           }
         }
       </script>
-      <script data-cfasync="false" type="text/javascript"
-        src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js">
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwpmOBm_oDszFhG4XTzPx6v8BJQgs-rKy-g6nwGbhBiMuHMq60C7UXwBf-Tucj2vfUH/exec'
+        const form = document.forms['contactForm'];
+        const successmsg=document.getElementById('submitSuccessMessage');
+        const errormsg=document.getElementById('submitErrorMessage');
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response),
+            //show success message
+            successmsg.hidden=false
+            )
+            .catch(error => errormsg.hidden=false)
+            //show error message
+            
+            
+            form.reset();
+        })
+        
       </script>
 </body>
 
