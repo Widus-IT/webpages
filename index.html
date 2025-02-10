@@ -174,14 +174,14 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form action="https://formspree.io/f/meoezdnj" method="post" target='blankifr'>
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" class="gform" method="POST" action="https://script.google.com/macros/s/AKfycbxjXC-SIbTqd4cfgigfr5yaim2o0IMjY08DU9pRXOD_DwC3Ez1BVhDjGaOIcLHIeZIK/exec">
                         <!-- Name input-->
-<!--                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="name" name="name" type="text" placeholder="이름을 입력하세요(Enter your name)..."
                                 data-sb-validations="required" />
                             <label for="name">이름(Full name)</label>
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div> -->
+                        </div>
                         <!-- Email address input-->
                         <div class="form-floating mb-3">
                             <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com"
@@ -191,16 +191,16 @@
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
                         <!-- Phone number input-->
-<!--                         <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="phone" name="phone" type="tel" placeholder="(123) 456-7890"
                                 data-sb-validations="required" />
                             <label for="phone">전화번호(Phone number)</label>
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
                             </div>
-                        </div> -->
+                        </div>
                         <!-- Message input-->
                         <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" type="text" name="message"
+                            <textarea class="form-control" id="message" name="message" type="text"
                                 placeholder="Enter your message here..." style="height: 10rem"
                                 data-sb-validations="required"></textarea>
                             <label for="message">메일본문(Message)</label>
@@ -278,9 +278,6 @@
                         document.getElementById('modalContent').innerHTML = data;
                     })
                     .catch(error => console.error('Error loading HTML:', error));
-
-
-                    
             });
         });
 
@@ -316,6 +313,9 @@
           }
         }
       </script>
+      <script data-cfasync="false" type="text/javascript"
+        src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js">
+      </script>
 </body>
-<iframe name='blankifr' style='display:none;'></iframe>
+
 </html>
