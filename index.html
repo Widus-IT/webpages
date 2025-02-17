@@ -164,51 +164,7 @@
                 </div>
             </div>
             <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                <div class="col-lg-6">
-                    <!-- google sheet를 이용해서 메일 보내기 구현 -->
-                    <!-- 참고 URL : https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server?tab=readme-ov-file#how -->
-                    <form id="contactForm" 
-                        class="gform" method="POST" action="https://script.google.com/macros/s/AKfycbxz0zNmb15w_veMgAd0Fy7KXf6VJCBGcSsqpPcrQPCfDfYYdz18q3QEJVBQSJHtcZAJ/exec">
-                        <!-- Name input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" name="name" type="text" placeholder="이름을 입력하세요(Enter your name)..."
-                                data-sb-validations="required" />
-                            <label for="name">이름(Full name)</label>
-                            <div class="invalid-feedback">이름을 입력하세요(A name is required).</div>
-                        </div>
-                        <!-- Email address input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com"
-                                data-sb-validations="required,email" />
-                            <label for="email">이메일주소(Email address)</label>
-                            <div class="invalid-feedback">이메일 형식으로 입력하세요(Email is not valid).</div>
-                        </div>
-                        <!-- Phone number input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" name="phone" type="tel" placeholder="(123) 456-7890"
-                                data-sb-validations="required" />
-                            <label for="phone">전화번호(Phone number)</label>
-                            <div class="invalid-feedback">전화번호를 입력하세요(A phone number is required).</div>
-                        </div>
-                        <!-- Message input-->
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" name="message" type="text"
-                                placeholder="Enter your message here..." style="height: 10rem"
-                                data-sb-validations="required"></textarea>
-                            <label for="message">메일본문(Message)</label>
-                            <div class="invalid-feedback">메시지를 입력하세요(A message is required).</div>
-                        </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="thankyou_message" id="submitSuccessMessage" style="display:none;">
-                            <div class="fw-bolder">감사합니다. 빠르게 연락드리겠습니다.<br>Thanks! We will contact you soon.</div>
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="d-grid"><button  class="btn btn-primary btn-xl" id="submitButton" type="submit">전송(Send)</button></div>
-                    </form>
-                </div>
+                <div class="d-grid"><a class="rounded-4 bg-primary text-white text-center default-transition hover:bg-primary-dark mt-9 px-6 py-[.6875rem] text-02-B w-fit h-9 my-32 tablet:my-9 desktop:absolute desktop:bottom-10 desktop:right-0" href="mailto:bdwidus@widus-it.com">문의하기(Contact sales)</a></div>
             </div>
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-4 text-center mb-5 mb-lg-0">
