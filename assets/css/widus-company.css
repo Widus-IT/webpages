@@ -328,6 +328,14 @@
   .widus-ip-grid { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
 }
 
+@media (max-width: 767px) {
+  /* 모바일·소형 태블릿 — 유형칩·날짜는 윗줄, 설명은 카드 전체 폭 아랫줄 */
+  .wt-event { flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 11px 15px; }
+  .wt-cat { order: 0; flex: 0 0 auto; text-align: left; }
+  .wt-month { order: 1; padding-left: 0; white-space: nowrap; }
+  .wt-desc { order: 2; flex: 1 0 100%; font-size: 0.95rem; }
+}
+
 @media (max-width: 575px) {
   .wt-year-block { grid-template-columns: 64px 1fr; }
   .wt-year { padding-right: 16px; }
@@ -354,18 +362,17 @@
 
 .widus-col-title {
   font-family: "SUIT Variable", sans-serif;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--widus-navy);
   margin: 0 0 20px;
   padding-bottom: 12px;
   border-bottom: 2px solid var(--widus-line);
 }
 .widus-col-title span {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--widus-navy);
-  white-space: nowrap;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 .widus-col-title em {
   font-family: "Merriweather Sans", sans-serif;
@@ -425,15 +432,11 @@
   margin-top: auto;
   padding-top: 26px;
 }
-.widus-ip-head.is-left h4 {
-  font-size: 1.28rem;
-  font-weight: 700;
-  color: var(--widus-navy);
-  margin: 0 0 6px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--widus-line);
+.widus-ip-head.is-left .widus-col-title {
+  font-size: 1.45rem;
+  margin-bottom: 0;
 }
-.widus-ip-head.is-left p { color: var(--widus-muted); font-size: 0.94rem; margin: 0; }
+.widus-ip-head.is-left p { color: var(--widus-muted); font-size: 0.94rem; margin: 12px 0 0; }
 .widus-ip-head.is-left b { color: var(--widus-orange); }
 
 .widus-about-col .widus-ip-grid {
