@@ -1,0 +1,611 @@
+/* =====================================================================
+   Widus IT — Company sections (주요 연혁 / 대외 신인도 / 특허·저작권)
+   추가 섹션 전용 스타일. 기존 styles.css 와 분리해 관리합니다.
+   Brand: navy #141c8b, orange #f4623a
+   ===================================================================== */
+
+:root {
+  --widus-navy: #141c8b;
+  --widus-orange: #f4623a;
+  --widus-ink: #2b2b30;
+  --widus-muted: #6c6c74;
+  --widus-line: rgba(20, 28, 139, 0.12);
+  --widus-paper: #f7f7fa;
+}
+
+/* 영문 보조 라벨 (h2 아래) ----------------------------------------- */
+.widus-eyebrow {
+  display: block;
+  text-align: center;
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: var(--widus-orange);
+  margin-bottom: 0.35rem;
+}
+
+.widus-lead {
+  font-family: "SUIT Variable", sans-serif;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  color: var(--widus-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =====================================================================
+   주요 연혁 — 좌측 연도 레일 타임라인
+   ===================================================================== */
+.widus-timeline {
+  font-family: "SUIT Variable", sans-serif;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.wt-year-block {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  column-gap: 0;
+}
+
+.wt-year-block + .wt-year-block { margin-top: 0; }
+
+/* 연도 컬럼 */
+.wt-year {
+  position: relative;
+  padding-top: 2px;
+  padding-right: 28px;
+  text-align: right;
+}
+.wt-year span {
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--widus-navy);
+  letter-spacing: -0.01em;
+}
+
+/* 이벤트 컬럼 — 좌측 세로 레일 + 도트 */
+.wt-events {
+  position: relative;
+  border-left: 2px solid var(--widus-line);
+  padding: 2px 0 2.75rem 30px;
+}
+.wt-year-block:last-child .wt-events { padding-bottom: 0; }
+
+.wt-events::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--widus-orange);
+  box-shadow: 0 0 0 4px rgba(244, 98, 58, 0.16);
+}
+
+.wt-event {
+  background: #fff;
+  border: 1px solid var(--widus-line);
+  border-radius: 10px;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 1px 2px rgba(20, 28, 139, 0.04),
+              0 6px 16px rgba(20, 28, 139, 0.05);
+  transition: transform 0.2s cubic-bezier(.2,0,0,1),
+              box-shadow 0.2s cubic-bezier(.2,0,0,1);
+}
+.wt-event + .wt-event { margin-top: 7px; }
+
+.wt-event:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(20, 28, 139, 0.06),
+              0 14px 28px rgba(20, 28, 139, 0.10);
+}
+
+.wt-cat {
+  display: inline-block;
+  white-space: nowrap;
+  flex: 0 0 86px;
+  text-align: center;
+  order: 1;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--widus-orange);
+  background: rgba(244, 98, 58, 0.08);
+  border-radius: 999px;
+  padding: 3px 8px;
+  margin-bottom: 0;
+}
+.wt-month {
+  order: 3;
+  flex-shrink: 0;
+  padding-left: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--widus-muted);
+}
+
+.wt-desc {
+  margin: 0;
+  order: 2;
+  flex: 1;
+  min-width: 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--widus-ink);
+  font-weight: 500;
+  text-wrap: pretty;
+}
+
+/* =====================================================================
+   대외 신인도 — 인증 카드
+   ===================================================================== */
+.widus-cred-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+  font-family: "SUIT Variable", sans-serif;
+}
+
+.widus-cred-card {
+  background: #fff;
+  border: 1px solid var(--widus-line);
+  border-radius: 14px;
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(20, 28, 139, 0.04),
+              0 10px 24px rgba(20, 28, 139, 0.06);
+  transition: transform 0.2s cubic-bezier(.2,0,0,1),
+              box-shadow 0.2s cubic-bezier(.2,0,0,1);
+}
+.widus-cred-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(20, 28, 139, 0.08),
+              0 22px 40px rgba(20, 28, 139, 0.12);
+}
+
+.widus-cred-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--widus-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.widus-cred-icon svg { width: 28px; height: 28px; color: #fff; }
+
+.widus-cred-card h3 {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--widus-navy);
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+.widus-cred-en {
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--widus-orange);
+  margin: 0 0 9px;
+}
+.widus-cred-desc {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--widus-muted);
+  margin: 0 0 13px;
+  text-wrap: pretty;
+}
+.widus-cred-meta {
+  margin-top: auto;
+  border-top: 1px solid var(--widus-line);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.widus-cred-meta div {
+  display: flex;
+  gap: 10px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+.widus-cred-meta dt {
+  flex: 0 0 64px;
+  color: var(--widus-orange);
+  font-weight: 700;
+  margin: 0;
+}
+.widus-cred-meta dd {
+  margin: 0;
+  color: var(--widus-ink);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* =====================================================================
+   특허 출원 및 프로그램 저작권
+   ===================================================================== */
+.widus-ip-head {
+  text-align: center;
+  margin: 72px auto 36px;
+  font-family: "SUIT Variable", sans-serif;
+}
+.widus-ip-head h3 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--widus-navy);
+  margin: 0 0 6px;
+}
+.widus-ip-head p {
+  color: var(--widus-muted);
+  font-size: 0.98rem;
+  margin: 0;
+}
+.widus-ip-head b { color: var(--widus-orange); }
+
+.widus-ip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1080px;
+  margin: 0 auto;
+  font-family: "SUIT Variable", sans-serif;
+}
+
+.widus-ip-card {
+  background: #fff;
+  border: 1px solid var(--widus-line);
+  border-radius: 12px;
+  padding: 18px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s cubic-bezier(.2,0,0,1),
+              box-shadow 0.2s cubic-bezier(.2,0,0,1);
+}
+.widus-ip-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(20, 28, 139, 0.10);
+}
+
+/* 특허 카드 강조 */
+.widus-ip-card.is-patent {
+  background: var(--widus-navy);
+  border-color: var(--widus-navy);
+}
+.widus-ip-card.is-patent .widus-ip-kind { color: #ffd9cd; background: rgba(244,98,58,0.28); }
+.widus-ip-card.is-patent .widus-ip-title { color: #fff; }
+.widus-ip-card.is-patent .widus-ip-no { color: rgba(255,255,255,0.7); }
+
+.widus-ip-kind {
+  align-self: flex-start;
+  white-space: nowrap;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--widus-orange);
+  background: rgba(244, 98, 58, 0.10);
+  border-radius: 999px;
+  padding: 3px 11px;
+  margin-bottom: 11px;
+}
+.widus-ip-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--widus-ink);
+  margin: 0 0 12px;
+  text-wrap: pretty;
+}
+.widus-ip-no {
+  margin-top: auto;
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--widus-muted);
+}
+
+/* =====================================================================
+   반응형
+   ===================================================================== */
+@media (max-width: 991px) {
+  .widus-cred-grid { grid-template-columns: 1fr; max-width: 520px; }
+  .widus-ip-grid { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
+}
+
+@media (max-width: 575px) {
+  .wt-year-block { grid-template-columns: 64px 1fr; }
+  .wt-year { padding-right: 16px; }
+  .wt-year span { font-size: 1.5rem; }
+  .wt-events { padding-left: 22px; padding-bottom: 2rem; }
+  .widus-ip-grid { grid-template-columns: 1fr; max-width: 360px; }
+}
+
+/* =====================================================================
+   About 통합 레이아웃 — 좌: 주요 연혁 / 우: 대외 신인도
+   ===================================================================== */
+#about { padding-top: 4.5rem; padding-bottom: 5rem; }
+
+.widus-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.widus-about-col { display: flex; flex-direction: column; }
+
+.widus-col-title {
+  font-family: "SUIT Variable", sans-serif;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--widus-line);
+}
+.widus-col-title span {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--widus-navy);
+  white-space: nowrap;
+}
+.widus-col-title em {
+  font-family: "Merriweather Sans", sans-serif;
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: var(--widus-orange);
+}
+
+/* 좌측 — 타임라인을 컬럼 폭에 맞게 축소 + 남는 높이를 채워 우측과 정렬 */
+.widus-about-col .widus-timeline {
+  max-width: none;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* 연속 세로 레일 (연도 컬럼 84px 경계) */
+.widus-about-col .widus-timeline::before {
+  content: "";
+  position: absolute;
+  left: 84px;
+  top: 9px;
+  bottom: 9px;
+  width: 2px;
+  background: var(--widus-line);
+}
+.widus-about-col .wt-year-block { grid-template-columns: 84px 1fr; }
+.widus-about-col .wt-year { padding-right: 16px; }
+.widus-about-col .wt-year span { font-size: 1.6rem; }
+.widus-about-col .wt-events {
+  border-left: 0;
+  padding-left: 24px;
+  padding-bottom: 0;
+}
+
+/* 우측 — 인증 카드 세로 스택(컴팩트) */
+.widus-about-col .widus-cred-grid {
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: none;
+}
+.widus-about-col .widus-cred-card { padding: 18px 20px; border-radius: 12px; }
+.widus-about-col .widus-cred-icon {
+  width: 44px; height: 44px; margin-bottom: 12px; border-radius: 12px;
+}
+.widus-about-col .widus-cred-icon svg { width: 22px; height: 22px; }
+.widus-about-col .widus-cred-card h3 { font-size: 1.1rem; }
+
+/* 우측 — 특허 / 저작권 (남는 높이를 흡수해 좌측과 정렬) */
+.widus-ip-head.is-left {
+  text-align: left;
+  margin: 0 0 16px;
+  margin-top: auto;
+  padding-top: 26px;
+}
+.widus-ip-head.is-left h4 {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--widus-navy);
+  margin: 0 0 6px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--widus-line);
+}
+.widus-ip-head.is-left p { color: var(--widus-muted); font-size: 0.94rem; margin: 0; }
+.widus-ip-head.is-left b { color: var(--widus-orange); }
+
+.widus-about-col .widus-ip-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: none;
+}
+.widus-about-col .widus-ip-card.is-patent { grid-column: 1 / -1; }
+
+@media (max-width: 991px) {
+  .widus-about-grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+    max-width: 660px;
+  }
+}
+
+@media (max-width: 575px) {
+  .widus-about-col .widus-ip-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   대외 신인도 — 커버플로우 슬라이더
+   ===================================================================== */
+.widus-cflow { font-family: "SUIT Variable", sans-serif; --cflow-w: 240px; }
+
+.widus-cflow-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.widus-cflow-stage {
+  position: relative;
+  height: 340px;
+}
+.widus-cflow-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.8s cubic-bezier(.2,0,0,1), opacity 0.8s cubic-bezier(.2,0,0,1);
+  will-change: transform, opacity;
+  -webkit-tap-highlight-color: transparent;
+}
+.widus-cflow-slide img {
+  display: block;
+  width: var(--cflow-w);
+  height: auto;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid var(--widus-line);
+  box-shadow: 0 6px 22px rgba(20, 28, 139, 0.14), 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+.widus-cflow-slide.is-center img {
+  box-shadow: 0 22px 50px rgba(20, 28, 139, 0.28), 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+.widus-cflow-slide.is-center::after {
+  content: "↗";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--widus-navy);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.widus-cflow-slide.is-center:hover::after { opacity: 0.92; transform: scale(1); }
+
+.widus-cflow-caption {
+  text-align: center;
+  margin-top: 22px;
+  min-height: 48px;
+}
+.widus-cflow-caption strong {
+  display: block;
+  color: var(--widus-navy);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.widus-cflow-caption span {
+  display: block;
+  margin-top: 4px;
+  color: var(--widus-muted);
+  font-size: 0.85rem;
+}
+
+.widus-cflow-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.widus-cflow-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--widus-line);
+  cursor: pointer;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+.widus-cflow-dots button.is-active {
+  width: 22px;
+  background: var(--widus-orange);
+}
+
+/* 원본 확대 라이트박스 */
+.widus-cflow-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(14, 13, 12, 0.84);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.widus-cflow-lightbox.is-open { opacity: 1; pointer-events: auto; }
+.widus-cflow-lightbox figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-height: 100%;
+}
+.widus-cflow-lightbox img {
+  max-width: min(92vw, 620px);
+  max-height: 84vh;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+.widus-cflow-lightbox figcaption {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "SUIT Variable", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.widus-cflow-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 26px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.widus-cflow-lightbox-close:hover { background: rgba(255, 255, 255, 0.24); }
